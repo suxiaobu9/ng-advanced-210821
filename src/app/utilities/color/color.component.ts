@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-color',
@@ -7,9 +8,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ColorComponent implements OnInit {
 
-  constructor() { }
+  constructor(private router: Router, private route: ActivatedRoute) { }
+
+  type: number;
+  name: string = '';
 
   ngOnInit(): void {
+    this.route.queryParamMap.subscribe(param => {
+      this.name = param.get('name');
+    })
+    this.route.paramMap.subscribe(param => {
+      this.type = +param.get('type');
+    })
   }
 
 }
