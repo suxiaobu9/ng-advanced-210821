@@ -14,17 +14,11 @@ const routes: Routes = [
       { path: 'dashboard', component: DashboardComponent },
       { path: 'page1', component: Page1Component },
       { path: 'page2', component: Page2Component },
-      { path: 'utilities/color/:type', loadChildren: () => import('./utilities/color/color.module').then(m => m.ColorModule) },
+      // { path: 'utilities/color/:type', loadChildren: () => import('./utilities/color/color.module').then(m => m.ColorModule) },
+      { path: 'utilities', loadChildren: () => import('./utilities/utilities.module').then(m => m.UtilitiesModule) },
     ]
   },
   { path: 'login', component: LoginComponent },
-  // {
-  //   path: 'utilities',
-  //   children: [
-  //     { path: 'color', component: ColorComponent }
-  //   ]
-  // },
-  // { path: 'color', loadChildren: () => import('./utilities/color/color.module').then(m => m.ColorModule) },
 ];
 
 @NgModule({
