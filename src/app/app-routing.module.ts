@@ -1,3 +1,4 @@
+import { AuthGuard } from './auth.guard';
 import { LoginComponent } from './login/login.component';
 import { LayoutComponent } from './layout/layout.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
@@ -15,7 +16,7 @@ const routes: Routes = [
       { path: 'page1', component: Page1Component },
       { path: 'page2', component: Page2Component },
       // { path: 'utilities/color/:type', loadChildren: () => import('./utilities/color/color.module').then(m => m.ColorModule) },
-      { path: 'utilities', loadChildren: () => import('./utilities/utilities.module').then(m => m.UtilitiesModule) },
+      { path: 'utilities', loadChildren: () => import('./utilities/utilities.module').then(m => m.UtilitiesModule), canActivate: [AuthGuard] },
     ]
   },
   { path: 'login', component: LoginComponent },
